@@ -33,11 +33,11 @@
             this.IsEqual = new System.Windows.Forms.Button();
             this.GCD = new System.Windows.Forms.Button();
             this.AddNumbers = new System.Windows.Forms.Button();
-            this.ToString = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.Instantiate = new System.Windows.Forms.Button();
+            this.ToString = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FirstNumber
@@ -92,23 +92,13 @@
             // 
             // AddNumbers
             // 
-            this.AddNumbers.Location = new System.Drawing.Point(435, 193);
+            this.AddNumbers.Location = new System.Drawing.Point(440, 193);
             this.AddNumbers.Name = "AddNumbers";
             this.AddNumbers.Size = new System.Drawing.Size(75, 23);
             this.AddNumbers.TabIndex = 5;
             this.AddNumbers.Text = "Add Numbers";
             this.AddNumbers.UseVisualStyleBackColor = true;
             this.AddNumbers.Click += new System.EventHandler(this.AddNumbers_Click);
-            // 
-            // ToString
-            // 
-            this.ToString.Location = new System.Drawing.Point(547, 193);
-            this.ToString.Name = "ToString";
-            this.ToString.Size = new System.Drawing.Size(75, 23);
-            this.ToString.TabIndex = 6;
-            this.ToString.Text = "ToString";
-            this.ToString.UseVisualStyleBackColor = true;
-            this.ToString.Click += new System.EventHandler(this.ToString_Click);
             // 
             // textBox1
             // 
@@ -144,16 +134,26 @@
             this.Instantiate.UseVisualStyleBackColor = true;
             this.Instantiate.Click += new System.EventHandler(this.Instantiate_Click);
             // 
+            // ToString
+            // 
+            this.ToString.Location = new System.Drawing.Point(548, 193);
+            this.ToString.Name = "ToString";
+            this.ToString.Size = new System.Drawing.Size(75, 23);
+            this.ToString.TabIndex = 12;
+            this.ToString.Text = "Display Info";
+            this.ToString.UseVisualStyleBackColor = true;
+            this.ToString.Click += new System.EventHandler(this.ToString_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(761, 389);
+            this.Controls.Add(this.ToString);
             this.Controls.Add(this.Instantiate);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.ToString);
             this.Controls.Add(this.AddNumbers);
             this.Controls.Add(this.GCD);
             this.Controls.Add(this.IsEqual);
@@ -161,7 +161,7 @@
             this.Controls.Add(this.SecondNumber);
             this.Controls.Add(this.FirstNumber);
             this.Name = "Form1";
-            this.Text = "TwoNumbers";
+            this.Text = "TwoNumbers App";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,11 +175,11 @@
         private System.Windows.Forms.Button IsEqual;
         private System.Windows.Forms.Button GCD;
         private System.Windows.Forms.Button AddNumbers;
-        private System.Windows.Forms.Button ToString;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button Instantiate;
+        private System.Windows.Forms.Button ToString;
     }
 }
 
