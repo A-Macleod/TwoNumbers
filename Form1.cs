@@ -138,30 +138,13 @@ namespace TwoNumbers
                 }   // EO if  
             }   // EO if
 
-
-
-
         }   // EO AddNumbers_Click
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void ToString_Click(object sender, EventArgs e)
         {
-
+            string toString = $"1st No: {newTwoNumbers.ReturnA()} , 2nd No: {newTwoNumbers.ReturnB()} , Highest No: {newTwoNumbers.ReturnLargestNumber()} , Equal: {newTwoNumbers.ReturnIfEqual()} , GCD: {newTwoNumbers.GCD()}";
+            textBox3.ForeColor= Color.Black;
+            textBox3.Text = toString ;
         }
 
     }   // EO Form1 Class
