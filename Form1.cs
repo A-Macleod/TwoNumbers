@@ -19,14 +19,12 @@ namespace TwoNumbers
     {
         // Declare a refference to TwoNumbers to be accessed by Form Class Methods
         private TwoNumbers newTwoNumbers;
-        private Timer messageTimer;
 
         public Form1()
         {
             InitializeComponent();
 
         }
-
 
         // OnClick event handler, parse string into integer from textBoxes and create new twoNumbers object using integer arguments 
         public void Instantiate_Click(object sender, EventArgs e)
@@ -40,7 +38,7 @@ namespace TwoNumbers
 
             // Output to textBox success
             textBox3.ForeColor = Color.Black;
-            textBox3.Text = $"newTwoNumbers Object Created, 1st Number: {A}  2nd Number: {B}";
+            textBox3.Text = $"newTwoNumbers Object Created, 1st number: {A}  2nd number: {B}";
 
             textBox1.Text = null;
             textBox2.Text = null;
@@ -67,7 +65,7 @@ namespace TwoNumbers
         private void Max_Click(object sender, EventArgs e)
         {
             textBox3.ForeColor = Color.Black;
-            textBox3.Text = $"The highest number entered is : {newTwoNumbers.ReturnLargestNumber()} ";
+            textBox3.Text = $"The highest number is : {newTwoNumbers.ReturnLargestNumber()} ";
 
             textBox1.Text = null;
             textBox2.Text = null;
@@ -76,7 +74,7 @@ namespace TwoNumbers
         private void IsEqual_Click(object sender, EventArgs e)
         {
             textBox3.ForeColor = Color.Black;
-            textBox3.Text = $"Are both numbers equal? = {newTwoNumbers.ReturnIfEqual()} ";
+            textBox3.Text = $"Are both numbers equal?   {newTwoNumbers.ReturnIfEqual()} ";
 
             textBox1.Text = null;
             textBox2.Text = null;
@@ -100,21 +98,17 @@ namespace TwoNumbers
             bool isTextBox1Valid = int.TryParse(textBox1.Text, out A);
             bool isTextBox2Valid = int.TryParse(textBox2.Text, out B);
 
-
             // If there is data in either textBox1 or textBox2 do this
             if (!string.IsNullOrWhiteSpace(textBox1.Text) || !string.IsNullOrWhiteSpace(textBox2.Text)) {
 
-                // If there is integers in both textBoxes
+                // If there is integers in both textBoxes do this, else display error message
                 if (isTextBox1Valid && isTextBox2Valid) {
 
-                    // If the numbers are both Positive
+                    // If the A & B are both Positive integers do this, else display error message
                     if (A > 0 && B > 0 ) {
 
-                        int first = newTwoNumbers.ReturnA() + A;
-                        int second = newTwoNumbers.ReturnB() + B;
-
                         textBox3.ForeColor = Color.Black;
-                        textBox3.Text = $"{newTwoNumbers.ReturnA()} + {A} = {first}  ,  {newTwoNumbers.ReturnB()} + {B} = {second}";
+                        textBox3.Text = $"{newTwoNumbers.AddNumbers(A, B)}";
 
                     } else {
 
@@ -124,6 +118,7 @@ namespace TwoNumbers
                         textBox3.Text = err;
                         textBox1.Text = null;
                         textBox2.Text = null;
+
                     }
 
                 } else {
@@ -136,15 +131,15 @@ namespace TwoNumbers
                     textBox2.Text = null;
 
                 }   // EO if  
-            }   // EO if
+            }   // EO if Outer
 
         }   // EO AddNumbers_Click
 
         private void ToString_Click(object sender, EventArgs e)
         {
-            string toString = $"1st No: {newTwoNumbers.ReturnA()} , 2nd No: {newTwoNumbers.ReturnB()} , Highest No: {newTwoNumbers.ReturnLargestNumber()} , Equal: {newTwoNumbers.ReturnIfEqual()} , GCD: {newTwoNumbers.GCD()}";
+            
             textBox3.ForeColor= Color.Black;
-            textBox3.Text = toString ;
+            textBox3.Text = newTwoNumbers.ToString();
         }
 
     }   // EO Form1 Class
@@ -155,17 +150,12 @@ namespace TwoNumbers
         // Private Fields only accessable from Public Properties or Methods
         private int _a, _b;
 
-
-
-
-
         // Constructor
         public TwoNumbers(int A, int B)
         {
             _a = A;
             _b = B;
         }
-
 
         // Method to return int A
         public int ReturnA()
@@ -221,8 +211,8 @@ namespace TwoNumbers
         {
             int first = A + ReturnA();
             int second = B + ReturnB();
-
-            return $"{first} , {second}";
+          
+            return $"{ReturnA()} + {A} = {first} , {ReturnB()} + {B} = {second}";
         }
 
         // Method called ToString that returns a string showing the state of the object 
@@ -231,13 +221,5 @@ namespace TwoNumbers
             return $"First Number:  {ReturnA()} \n Second Number:  {ReturnB()} \n Max:  {ReturnLargestNumber()} \n Equal:  {ReturnIfEqual()} \n GCD:  {GCD()} ";
         }
 
-
-
-
-
-         
-
-
-        
         }   // EO TwoNumbers Class
 }   // EO namespace
