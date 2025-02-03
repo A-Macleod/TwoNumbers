@@ -29,19 +29,61 @@ namespace TwoNumbers
         // OnClick event handler, parse string into integer from textBoxes and create new twoNumbers object using integer arguments 
         public void Instantiate_Click(object sender, EventArgs e)
         {
-            // Parse the string value from textBoxes into Integers
-            int A = int.Parse(textBox1.Text);
-            int B = int.Parse(textBox2.Text);
+            //// Parse the string value from textBoxes into Integers
+            //int A = int.Parse(textBox1.Text);
+            //int B = int.Parse(textBox2.Text);
 
-            // Instantiate a new twoNumbers object with argument A and B
-            newTwoNumbers = new TwoNumbers(A, B);
+            //// Instantiate a new twoNumbers object with argument A and B
+            //newTwoNumbers = new TwoNumbers(A, B);
 
-            // Output to textBox success
-            textBox3.ForeColor = Color.Black;
-            textBox3.Text = $"newTwoNumbers Object Created, 1st number: {A}  2nd number: {B}";
+            //// Output to textBox success
+            //textBox3.ForeColor = Color.Black;
+            //textBox3.Text = $"newTwoNumbers Object Created, 1st number: {A}  2nd number: {B}";
 
-            textBox1.Text = null;
-            textBox2.Text = null;
+            //textBox1.Text = null;
+            //textBox2.Text = null;
+
+            textBox3.ForeColor = Color.Red;
+            textBox3.Text = $"Please enter Positive Numbers in both text boxes";
+
+            int A, B;
+            bool isTextBox1Valid = int.TryParse(textBox1.Text, out A);
+            bool isTextBox2Valid = int.TryParse(textBox2.Text, out B);
+
+            // If there is data in either textBox1 or textBox2 do this
+            if (!string.IsNullOrWhiteSpace(textBox1.Text) || !string.IsNullOrWhiteSpace(textBox2.Text)) {
+
+                // If there is integers in both textBoxes do this, else display error message
+                if (isTextBox1Valid && isTextBox2Valid) {
+
+                    // If the A & B are both Positive integers do this, else display error message
+                    if (A > 0 && B > 0) {
+
+                        textBox3.ForeColor = Color.Black;
+                        textBox3.Text = $"newTwoNumbers Object Created, 1st number: {A}  2nd number: {B}";
+
+                    } else {
+
+                        // Error message, textBox1 or textBox2 contains a Negative integer 
+                        string err = $"Please enter Positive Numbers in both text boxes";
+                        textBox3.ForeColor = Color.Red;
+                        textBox3.Text = err;
+                        textBox1.Text = null;
+                        textBox2.Text = null;
+
+                    }
+
+                } else {
+
+                    // Error message, textBox1 & textBox2 do not contain integers
+                    string err = $"Please enter Numbers in both text boxes";
+                    textBox3.ForeColor = Color.Red;
+                    textBox3.Text = err;
+                    textBox1.Text = null;
+                    textBox2.Text = null;
+
+                }   // EO if  
+            }   // EO if Outer
         }
 
         public void FirstNumber_Click(object sender, EventArgs e)
