@@ -23,7 +23,6 @@ namespace TwoNumbers
         public Form1()
         {
             InitializeComponent();
-
         }
 
         // OnClick event handler, parse string into integer from textBoxes and create new twoNumbers object using integer arguments 
@@ -43,23 +42,22 @@ namespace TwoNumbers
                 // If there is integers in both textBoxes do this, else display error message
                 if (isTextBox1Valid && isTextBox2Valid) {
 
-                    // If the A & B are both Positive integers do this, else display error message
+                    // If A & B are both Positive integers do this, else display error message
                     if (A > 0 && B > 0) {
 
                         textBox3.ForeColor = Color.Black;
                         //// Instantiate a new twoNumbers object with argument A and B
                         newTwoNumbers = new TwoNumbers(A, B);
                         textBox3.Text = $"newTwoNumbers Object Created, 1st number: {A}  2nd number: {B}";
-                        textBox1.Text = null;
-                        textBox2.Text = null;
+                        ClearTextBox();
 
                     } else {
                         // Error message, textBox1 or textBox2 contains a Negative integer 
                         string err = $"Please enter Positive Numbers in both text boxes";
                         textBox3.ForeColor = Color.Red;
                         textBox3.Text = err;
-                        textBox1.Text = null;
-                        textBox2.Text = null;
+                        ClearTextBox();
+
                     }
 
                 } else {
@@ -67,8 +65,8 @@ namespace TwoNumbers
                     string err = $"Please enter Numbers in both text boxes";
                     textBox3.ForeColor = Color.Red;
                     textBox3.Text = err;
-                    textBox1.Text = null;
-                    textBox2.Text = null;
+                    ClearTextBox();
+
                 }   // EO if  
             }   // EO if Outer
         }   // EO Instantiate_Click()
@@ -79,14 +77,13 @@ namespace TwoNumbers
 
                 textBox3.ForeColor = Color.Black;
                 textBox3.Text = $"The 1st number is {newTwoNumbers.ReturnA()} ";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
 
             } else {
                 textBox3.ForeColor = Color.Red;
                 textBox3.Text = $"Create a Two Numbers Object before checking the 1st Number";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
+
             }
         }
 
@@ -96,14 +93,13 @@ namespace TwoNumbers
 
                 textBox3.ForeColor = Color.Black;
                 textBox3.Text = $"The 2nd number is {newTwoNumbers.ReturnB()} ";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
 
             } else {
                 textBox3.ForeColor = Color.Red;
                 textBox3.Text = $"Create a Two Numbers Object before checking the 2nd Number";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
+
             }
         }
 
@@ -112,14 +108,12 @@ namespace TwoNumbers
             if (newTwoNumbers != null) {
                 textBox3.ForeColor = Color.Black;
                 textBox3.Text = $"The highest number is : {newTwoNumbers.ReturnLargestNumber()} ";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
 
             } else {
                 textBox3.ForeColor = Color.Red;
                 textBox3.Text = $"Create a Two Numbers Object before checking the Maximum";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
             }
         }
 
@@ -128,14 +122,12 @@ namespace TwoNumbers
             if (newTwoNumbers != null) {
                 textBox3.ForeColor = Color.Black;
                 textBox3.Text = $"Are both numbers equal?  {newTwoNumbers.ReturnIfEqual()} ";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
 
             } else {
                 textBox3.ForeColor = Color.Red;
                 textBox3.Text = $"Create a Two Numbers Object before checking Equality";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
             }
         }
 
@@ -144,14 +136,12 @@ namespace TwoNumbers
             if (newTwoNumbers != null) {
                 textBox3.ForeColor = Color.Black;
                 textBox3.Text = $"The GCD of {newTwoNumbers.ReturnA()} & {newTwoNumbers.ReturnB()} = {newTwoNumbers.GCD()} ";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
 
             } else {
                 textBox3.ForeColor = Color.Red;
                 textBox3.Text = $"Create a Two Numbers Object before checking the GCD";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
             }
         }
 
@@ -161,8 +151,7 @@ namespace TwoNumbers
             if (newTwoNumbers == null) {
                 textBox3.ForeColor = Color.Red;
                 textBox3.Text = $"Create a Two Numbers Object before Adding more numbers";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
 
             } else {
 
@@ -180,21 +169,19 @@ namespace TwoNumbers
                     // If there is integers in both textBoxes do this, else display error message
                     if (isTextBox1Valid && isTextBox2Valid) {
 
-                        // If the A & B are both Positive integers do this, else display error message
+                        // If A & B are both Positive integers do this, else display error message
                         if (A > 0 && B > 0) {
 
                             textBox3.ForeColor = Color.Black;
                             textBox3.Text = $"{newTwoNumbers.AddNumbers(A, B)}";
-                            textBox1.Text = null;
-                            textBox2.Text = null;
+                            ClearTextBox();
 
                         } else {
                             // Error message, textBox1 or textBox2 contains a Negative integer 
                             string err = $"Please enter Positive Numbers in both text boxes";
                             textBox3.ForeColor = Color.Red;
                             textBox3.Text = err;
-                            textBox1.Text = null;
-                            textBox2.Text = null;
+                            ClearTextBox();
                         }
 
                     } else {
@@ -202,8 +189,7 @@ namespace TwoNumbers
                         string err = $"Please enter Numbers in both text boxes";
                         textBox3.ForeColor = Color.Red;
                         textBox3.Text = err;
-                        textBox1.Text = null;
-                        textBox2.Text = null;
+                        ClearTextBox();
                     }   // EO if  
 
                 }   // EO if Outer
@@ -219,10 +205,15 @@ namespace TwoNumbers
             } else {
                 textBox3.ForeColor = Color.Red;
                 textBox3.Text = $"Create a Two Numbers Object before checking everything";
-                textBox1.Text = null;
-                textBox2.Text = null;
+                ClearTextBox();
             }
         }   // EO ToString_Click()
+
+        private void ClearTextBox()
+        {
+            textBox1.Text = null;
+            textBox2.Text = null;
+        }
 
     }   // EO Form1 Class
 
