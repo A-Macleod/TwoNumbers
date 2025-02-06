@@ -76,7 +76,7 @@ namespace TwoNumbers
             if (newTwoNumbers != null) {
 
                 textBox3.ForeColor = Color.Black;
-                textBox3.Text = $"The 1st number is {newTwoNumbers.ReturnA()} ";
+                textBox3.Text = $"The 1st number is {newTwoNumbers.A} ";
                 ClearTextBox();
 
             } else {
@@ -92,7 +92,7 @@ namespace TwoNumbers
             if (newTwoNumbers != null) {
 
                 textBox3.ForeColor = Color.Black;
-                textBox3.Text = $"The 2nd number is {newTwoNumbers.ReturnB()} ";
+                textBox3.Text = $"The 2nd number is {newTwoNumbers.B} ";
                 ClearTextBox();
 
             } else {
@@ -135,7 +135,7 @@ namespace TwoNumbers
         {
             if (newTwoNumbers != null) {
                 textBox3.ForeColor = Color.Black;
-                textBox3.Text = $"The GCD of {newTwoNumbers.ReturnA()} & {newTwoNumbers.ReturnB()} = {newTwoNumbers.GCD()} ";
+                textBox3.Text = $"The GCD of {newTwoNumbers.A} & {newTwoNumbers.B} = {newTwoNumbers.GCD()} ";
                 ClearTextBox();
 
             } else {
@@ -156,7 +156,7 @@ namespace TwoNumbers
             } else {
 
                 textBox3.ForeColor = Color.Red;
-                textBox3.Text = $"Enter numbers to add: {newTwoNumbers.ReturnA()} + ? , {newTwoNumbers.ReturnB()} + ?";
+                textBox3.Text = $"Enter numbers to add: {newTwoNumbers.A} + ? , {newTwoNumbers.B} + ?";
 
                 int A, B;
                 bool isTextBox1Valid = int.TryParse(textBox1.Text, out A);
@@ -223,6 +223,18 @@ namespace TwoNumbers
         // Private Fields only accessable from Public Properties or Methods
         private int _a, _b;
 
+        // Property
+        public int A 
+        {
+            get { return _a; }
+        }
+
+        public int B
+        { 
+            get { return _b; }
+        }
+
+
         // Constructor
         public TwoNumbers(int A, int B)
         {
@@ -230,22 +242,11 @@ namespace TwoNumbers
             _b = B;
         }
 
-        // Method to return int A
-        public int ReturnA()
-        {
-            return _a;
-        }
-
-        // Method to return int B
-        public int ReturnB()
-        {
-            return _b;
-        }
 
         // Method to return the Larger Number of int A and int B
         public int ReturnLargestNumber()
         {
-            if (ReturnA() > ReturnB()) {
+            if (_a > _b) {
                 return _a;
             } else {
                 return _b;
@@ -255,7 +256,7 @@ namespace TwoNumbers
         // Method to return whether two numbers are Equal
         public bool ReturnIfEqual()
         {
-            if (ReturnA() == ReturnB()) {
+            if (_a == _b) {
                 return true;
             } else {
                 return false;
@@ -265,8 +266,8 @@ namespace TwoNumbers
         // Method to return the GCD (Greatest Common Divisor) of int A and int B using Euclids Algorithm (Subtraction)
         public int GCD()
         {
-            int A = ReturnA();
-            int B = ReturnB();
+            int A = _a;
+            int B = _b;
 
             // Euclids Algorithm
             while (A != B) {
@@ -282,16 +283,16 @@ namespace TwoNumbers
         // Method that accepts two integers as arguments, and adds the first to the first stored and second to second stored
         public string AddNumbers(int A, int B)
         {
-            int first = A + ReturnA();
-            int second = B + ReturnB();
+            int first = A + _a;
+            int second = B + _b;
           
-            return $"{ReturnA()} + {A} = {first} , {ReturnB()} + {B} = {second}";
+            return $"{_a} + {A} = {first} , {_b} + {B} = {second}";
         }
 
         // Method called ToString that returns a string showing the state of the object 
         public override string ToString()
         {
-            return $"First Number:  {ReturnA()} \n Second Number:  {ReturnB()} \n Max:  {ReturnLargestNumber()} \n Equal:  {ReturnIfEqual()} \n GCD:  {GCD()} ";
+            return $"First Number:  {_a} \n Second Number:  {_b} \n Max:  {ReturnLargestNumber()} \n Equal:  {ReturnIfEqual()} \n GCD:  {GCD()} ";
         }
 
         }   // EO TwoNumbers Class
